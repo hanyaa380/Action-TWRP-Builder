@@ -88,10 +88,7 @@ jobs:
         distribution: 'zulu'
         java-version: '8'
     
-    - name: Fix Python 2 to Python 3 syntax in roomservice.py
-      run: |
-         sed -i 's/except IOError, ES.ParseError:/except (IOError, ES.ParseError):/g' build/tools/roomservice.py
-
+  
     - name: Setup SSH Keys
       if: ${{ startsWith(github.event.inputs.MANIFEST_URL, 'git@github.com') || 
           startsWith(github.event.inputs.DEVICE_TREE_URL, 'git@github.com') ||
